@@ -18,7 +18,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final signIn = Container(
+    final send = Container(
       width: MediaQuery.of(context).size.width,
       height: 50,
       margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
@@ -44,14 +44,20 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
     );
 
     return Scaffold(
-      appBar: AppBar(leading: Icon(Icons.arrow_back_ios)),
+      appBar: AppBar(
+          leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      )),
       body: Padding(
         padding:
             const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height * 0.8,
             child: Form(
               key: _formKey,
               child: Column(
@@ -62,31 +68,17 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                       "Forgot password",
                       style: TextStyle(
                           color: textColor,
-                          fontSize: 25,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 50),
                   buildTextField("Email", emailController, emailFocusNode),
                   SizedBox(height: 10),
                   SizedBox(
                     height: 10,
                   ),
-                  GestureDetector(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          child: Text("Forgot your password? "),
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: buttonColor,
-                        )
-                      ],
-                    ),
-                  ),
-                  signIn,
+                  send,
                   Spacer(),
                 ],
               ),
@@ -133,39 +125,51 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
         Material(
           elevation: 2,
           borderRadius: BorderRadius.circular(10),
-          child: TextFormField(
-            controller: controller,
-            focusNode: focusNode,
-            cursorColor: Colors.black45,
-            keyboardType: label == "Email"
-                ? TextInputType.emailAddress
-                : TextInputType.text,
-            style: TextStyle(color: Colors.black.withOpacity(0.9)),
-            validator: label == "Email" ? emailValidator : passwordValidator,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(15, 15, 0, 10),
-              labelText: "$label",
-              filled: true,
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              fillColor: Colors.white.withOpacity(0.3),
-              hintText: "Enter $label",
-              hintStyle:
-                  TextStyle(color: Colors.black.withOpacity(0.9), fontSize: 12),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: TextFormField(
+                  controller: controller,
+                  focusNode: focusNode,
+                  cursorColor: Colors.black45,
+                  keyboardType: label == "Email"
+                      ? TextInputType.emailAddress
+                      : TextInputType.text,
+                  style: TextStyle(color: Colors.black.withOpacity(0.9)),
+                  validator:
+                      label == "Email" ? emailValidator : passwordValidator,
+                  textInputAction: label == "Password"
+                      ? TextInputAction.done
+                      : TextInputAction.next,
+                  obscureText: label == "Password",
+                  decoration: InputDecoration(
+                    labelText: "$label",
+                    filled: true,
+                    labelStyle: TextStyle(
+                      color: textColor,
+                      fontSize: 16,
+                    ),
+                    fillColor: Colors.white.withOpacity(0.3),
+                    hintText: "Enter $label",
+                    hintStyle: TextStyle(
+                        color: Colors.black.withOpacity(0.9), fontSize: 12),
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    focusedErrorBorder: InputBorder.none,
+                  ),
                 ),
               ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
-                ),
-              ),
-            ),
+            ],
           ),
         ),
         if (isFieldValid(controller.text, label))

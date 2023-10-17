@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height * 0.8,
             child: Form(
               key: _formKey,
               child: Column(
@@ -106,11 +106,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       "Sign Up",
                       style: TextStyle(
                           color: textColor,
-                          fontSize: 25,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 50),
                   buildTextField("Name", nameController, nameFocusNode),
                   SizedBox(height: 10),
                   buildTextField("Email", emailController, emailFocusNode),
@@ -139,6 +139,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   signup,
                   Spacer(),
@@ -205,50 +208,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
         Material(
           elevation: 2,
           borderRadius: BorderRadius.circular(10),
-          child: TextFormField(
-            controller: controller,
-            focusNode: focusNode,
-            cursorColor: Colors.black45,
-            keyboardType: label == "Email"
-                ? TextInputType.emailAddress
-                : TextInputType.text,
-            style: TextStyle(color: Colors.black.withOpacity(0.9)),
-            validator: label == "Email" ? emailValidator : passwordValidator,
-            textInputAction: label == "Password"
-                ? TextInputAction.done
-                : TextInputAction.next,
-            obscureText: label == "Password",
-            onEditingComplete: () {
-              if (label == "Name") {
-                FocusScope.of(context).requestFocus(emailFocusNode);
-              } else if (label == "Email") {
-                FocusScope.of(context).requestFocus(passwordFocusNode);
-              }
-            },
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(15, 15, 0, 10),
-              labelText: "$label",
-              filled: true,
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              fillColor: Colors.white.withOpacity(0.3),
-              hintText: "Enter $label",
-              hintStyle:
-                  TextStyle(color: Colors.black.withOpacity(0.9), fontSize: 12),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: TextFormField(
+                  controller: controller,
+                  focusNode: focusNode,
+                  cursorColor: Colors.black45,
+                  keyboardType: label == "Email"
+                      ? TextInputType.emailAddress
+                      : TextInputType.text,
+                  style: TextStyle(color: Colors.black.withOpacity(0.9)),
+                  validator:
+                      label == "Email" ? emailValidator : passwordValidator,
+                  textInputAction: label == "Password"
+                      ? TextInputAction.done
+                      : TextInputAction.next,
+                  obscureText: label == "Password",
+                  onEditingComplete: () {
+                    if (label == "Name") {
+                      FocusScope.of(context).requestFocus(emailFocusNode);
+                    } else if (label == "Email") {
+                      FocusScope.of(context).requestFocus(passwordFocusNode);
+                    }
+                  },
+                  decoration: InputDecoration(
+                    labelText: "$label",
+                    filled: true,
+                    labelStyle: TextStyle(
+                      color: textColor,
+                      fontSize: 16,
+                    ),
+                    fillColor: Colors.white.withOpacity(0.3),
+                    hintText: "Enter $label",
+                    hintStyle: TextStyle(
+                        color: Colors.black.withOpacity(0.9), fontSize: 12),
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    focusedErrorBorder: InputBorder.none,
+                  ),
                 ),
               ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
-                ),
-              ),
-            ),
+            ],
           ),
         ),
         if (isFieldValid(controller.text, label))

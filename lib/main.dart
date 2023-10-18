@@ -1,4 +1,7 @@
 import 'package:ecommerceapp/Page/homePage.dart';
+import 'package:ecommerceapp/Screens/BagScreen/promocode.dart';
+import 'package:ecommerceapp/Screens/HomeScreen/fashionsale.dart';
+import 'package:ecommerceapp/Screens/HomeScreen/streetCloths.dart';
 import 'package:ecommerceapp/Screens/SignInSignUp/SignUpScreen.dart';
 import 'package:flutter/material.dart';
 

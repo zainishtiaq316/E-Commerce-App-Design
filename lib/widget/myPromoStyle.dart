@@ -1,9 +1,11 @@
 import 'package:ecommerceapp/Model/bagModel.dart';
+import 'package:ecommerceapp/Model/promoCodeModel.dart';
 import 'package:ecommerceapp/widget/bagCard.dart';
+import 'package:ecommerceapp/widget/myPromoCard.dart';
 import 'package:flutter/material.dart';
 
-class bagStyle extends StatelessWidget {
-  const bagStyle({super.key});
+class promoStyle extends StatelessWidget {
+  const promoStyle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +15,14 @@ class bagStyle extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.15,
-              child: bagCard(
-                bag: bagItem[index],
+              height: MediaQuery.of(context).size.height * 0.13,
+              child: promoCard(
+                pCard: promocodeItem[index],
               )),
           separatorBuilder: (context, index) => SizedBox(
                 height: 10,
               ),
-          itemCount: bagItem.length),
+          itemCount: promocodeItem.length),
     );
   }
 }

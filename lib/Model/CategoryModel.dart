@@ -10,6 +10,7 @@ class NewItemModel {
   bool? showSpecificDiscount;
   bool? showSpecificQuality;
   String? discountPercentage;
+  bool? showBag;
   NewItemModel(
       {this.image,
       this.name,
@@ -19,6 +20,7 @@ class NewItemModel {
       this.stars,
       this.ratings,
       this.fashions,
+      this.showBag,
       this.discountPercentage,
       this.showSpecificDiscount,
       this.showSpecificQuality});
@@ -65,4 +67,45 @@ List<NewItemModel> saleItems = [
       discountPrice: "22\$",
       discountPercentage: "-15%",
       showSpecificDiscount: true)
+];
+List<NewItemModel> favouriteItemss = [
+  NewItemModel(
+      image: "assets/images/f1.png",
+      name: "Girl Dress",
+      price: "12",
+      ratings: 20,
+      fashions: "Dorothy Perkins",
+      quality: "New",
+      stars: 5,
+      showBag: true),
+  NewItemModel(
+      image: "assets/images/f2.png",
+      name: "Boy Dress",
+      price: "12",
+      ratings: 10,
+      fashions: "Sitlly",
+      quality: "New",
+      showBag: true,
+      stars: 4,
+      showSpecificQuality: true),
+  NewItemModel(
+      image: "assets/images/f4.png",
+      name: "Evening Dress",
+      price: "12",
+      stars: 3,
+      ratings: 30,
+      showBag: true,
+      fashions: "Sitlly",
+      discountPrice: "15\$",
+      discountPercentage: "-20%",
+      showSpecificDiscount: true),
+  NewItemModel(
+    image: "assets/images/f1.png",
+    name: "Sports Dress",
+    price: "19",
+    stars: 2,
+    ratings: 40,
+    showBag: true,
+    fashions: "Dorothy Perkins",
+  )
 ];

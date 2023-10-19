@@ -6,7 +6,12 @@ class PromeCodeModel {
   bool? discountColor;
   String? duration;
   PromeCodeModel(
-      {this.image, this.duration, this.offer, this.percentage, this.promoCode});
+      {this.image,
+      this.duration,
+      this.offer,
+      this.percentage,
+      this.promoCode,
+      this.discountColor});
 }
 
 List<PromeCodeModel> promocodeItem = [
@@ -21,6 +26,7 @@ List<PromeCodeModel> promocodeItem = [
       percentage: "15",
       offer: "Summer Sale",
       promoCode: "summer2020",
+      discountColor: true,
       duration: "23 days remaining"),
   PromeCodeModel(
       image: "assets/images/p1.png",

@@ -8,21 +8,32 @@ class promoStyle extends StatelessWidget {
   const promoStyle({super.key});
 
   @override
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.5,
-      child: ListView.separated(
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.13,
-              child: promoCard(
-                pCard: promocodeItem[index],
-              )),
-          separatorBuilder: (context, index) => SizedBox(
-                height: 10,
-              ),
-          itemCount: promocodeItem.length),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SizedBox(
+          height: constraints.maxWidth < 600
+              ? MediaQuery.of(context).size.height * 0.5
+              : MediaQuery.of(context).size.height * 0.8,
+          child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: constraints.maxWidth < 600
+                    ? MediaQuery.of(context).size.height * 0.13
+                    : MediaQuery.of(context).size.height * 0.2,
+                child: promoCard(pCard: promocodeItem[index]),
+              );
+            },
+            separatorBuilder: (context, index) => SizedBox(
+              height: 10,
+            ),
+            itemCount: promocodeItem.length,
+          ),
+        );
+      },
     );
   }
 }

@@ -1,16 +1,13 @@
 import 'package:ecommerceapp/widget/myPromoStyle.dart';
 import 'package:flutter/material.dart';
 
-class PromoCode extends StatefulWidget {
-  const PromoCode({super.key});
+class PromoCode extends StatelessWidget {
+  PromoCode({super.key});
 
-  @override
-  State<PromoCode> createState() => _PromoCodeState();
-}
-
-class _PromoCodeState extends State<PromoCode> {
   final _formKey = GlobalKey<FormState>();
+
   final promoController = TextEditingController();
+
   final promoCode = Container(
     decoration: BoxDecoration(
       boxShadow: [
@@ -69,7 +66,10 @@ class _PromoCodeState extends State<PromoCode> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+      ),
       child: Form(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

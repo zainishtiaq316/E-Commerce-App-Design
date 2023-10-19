@@ -8,12 +8,12 @@ class bagStyle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.5,
+      height: MediaQuery.of(context).size.height * 0.6,
       child: ListView.separated(
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.15,
+              height: MediaQuery.of(context).size.height * 0.17,
               child: bagCard(
                 bag: bagItem[index],
               )),

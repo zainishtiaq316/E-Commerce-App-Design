@@ -17,9 +17,12 @@ class HomeScreen extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset(
-                    "assets/images/banner.png",
-                    fit: BoxFit.cover,
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Image.asset(
+                      "assets/images/banner.png",
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Positioned(
                       left: 20,

@@ -23,9 +23,9 @@ class promoCard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Container(
+                      height: MediaQuery.of(context).size.height,
                       child: Image.asset(
                         pCard.image!,
-                        width: MediaQuery.of(context).size.width * 0.25,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -38,7 +38,9 @@ class promoCard extends StatelessWidget {
                           child: Text(
                             "${pCard.percentage}",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: pCard.discountColor == true
+                                    ? Colors.black
+                                    : Colors.white,
                                 fontSize: 35,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -53,7 +55,9 @@ class promoCard extends StatelessWidget {
                           child: Text(
                             "%",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: pCard.discountColor == true
+                                    ? Colors.black
+                                    : Colors.white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -68,7 +72,9 @@ class promoCard extends StatelessWidget {
                           child: Text(
                             "off",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: pCard.discountColor == true
+                                    ? Colors.black
+                                    : Colors.white,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                           ),

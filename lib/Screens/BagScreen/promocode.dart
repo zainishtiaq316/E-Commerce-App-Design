@@ -65,40 +65,34 @@ class PromoCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
-      ),
-      child: Form(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Icon(
-                Icons.horizontal_rule,
-                size: 48,
-              ),
+    return Form(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Icon(
+              Icons.horizontal_rule,
+              size: 48,
             ),
-            Padding(
-                padding: const EdgeInsets.only(
-                    left: 15, right: 10, top: 20, bottom: 30),
-                child: promoCode),
-            Padding(
-                padding: const EdgeInsets.only(
-                    left: 15, right: 10, top: 10, bottom: 10),
-                child: Container(
-                  child: Text(
-                    "Your Promo Codes",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  ),
-                )),
-            promoStyle()
-          ],
-        ),
+          ),
+          Padding(
+              padding: const EdgeInsets.only(
+                  left: 15, right: 10, top: 20, bottom: 30),
+              child: promoCode),
+          Padding(
+              padding: const EdgeInsets.only(
+                  left: 15, right: 10, top: 10, bottom: 10),
+              child: Container(
+                child: Text(
+                  "Your Promo Codes",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+              )),
+          promoStyle()
+        ],
       ),
     );
   }

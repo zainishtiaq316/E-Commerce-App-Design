@@ -12,7 +12,8 @@ class NewProductStyle extends StatelessWidget {
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => SizedBox(
-              width: 140, child: NewProductCard(data: newItems[index])),
+              width: MediaQuery.of(context).size.width * 0.43,
+              child: NewProductCard(data: newItems[index])),
           separatorBuilder: (context, index) => SizedBox(
                 width: 10,
               ),

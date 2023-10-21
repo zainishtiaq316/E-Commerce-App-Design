@@ -26,15 +26,17 @@ class _BagScreenState extends State<BagScreen> {
 
     void _showSnapshot() {
       showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusDirectional.only(
+            topEnd: Radius.circular(25),
+            topStart: Radius.circular(25),
+          ),
+        ),
         builder: (BuildContext context) {
-          return ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            ),
-            child: snapshotWidget(),
-          );
+          return snapshotWidget();
         },
       );
     }

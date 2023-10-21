@@ -1,7 +1,6 @@
 import 'package:ecommerceapp/Model/CategoryModel.dart';
-
-import 'package:ecommerceapp/widget/NewProductCard.dart';
-
+import 'package:ecommerceapp/Model/bagModel.dart';
+import 'package:ecommerceapp/widget/favouriteCard.dart';
 import 'package:flutter/material.dart';
 
 class favouriteStyle extends StatelessWidget {
@@ -11,23 +10,17 @@ class favouriteStyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
-      child: GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.6,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5),
-          padding: EdgeInsets.only(left: 10, right: 10),
-          itemCount: favouriteItemss.length,
-          itemBuilder: (context, index) {
-            return Container(
-              child: GestureDetector(
-                onTap: () {},
-                child: NewProductCard(data: favouriteItemss[index]),
+      child: ListView.separated(
+          itemBuilder: (context, index) => SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.17,
+              child: favouriteCard(
+                favCard: favouriteItemss[index],
+              )),
+          separatorBuilder: (context, index) => SizedBox(
+                height: 10,
               ),
-            );
-          }),
+          itemCount: favouriteItemss.length),
     );
   }
 }

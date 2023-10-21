@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class ShippingModel {
   String? name;
   String? address;

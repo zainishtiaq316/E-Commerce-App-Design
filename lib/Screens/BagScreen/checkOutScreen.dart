@@ -1,10 +1,12 @@
 import 'package:ecommerceapp/Constant/colors.dart';
+import 'package:ecommerceapp/Model/paymentModel.dart';
 import 'package:ecommerceapp/Model/shippingAddressmodel.dart';
 import 'package:ecommerceapp/Screens/BagScreen/paymentMethods.dart';
 import 'package:ecommerceapp/Screens/BagScreen/shippingAddress.dart';
-import 'package:ecommerceapp/widget/atmCard.dart';
+
 import 'package:ecommerceapp/widget/checkoutLastDetail.dart';
 import 'package:ecommerceapp/widget/deliveryMethods.dart';
+import 'package:ecommerceapp/widget/maskCardNumber.dart';
 import 'package:flutter/material.dart';
 
 class checkOut extends StatefulWidget {
@@ -15,9 +17,10 @@ class checkOut extends StatefulWidget {
 }
 
 class _checkOutState extends State<checkOut> {
-  String cardNumber = '123456789012';
+  String cardNumber = '7656456712348907';
 
   ShippingModel? selectedShipping;
+  PaymentModel? selectPayment;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +55,10 @@ class _checkOutState extends State<checkOut> {
       (address) => address.isSelected ?? false,
       orElse: () => ShippingModel(),
     );
+
+    selectPayment = paymentItem.firstWhere(
+        (address) => address.isSelected ?? false,
+        orElse: () => PaymentModel());
 
     return Scaffold(
       appBar: AppBar(
@@ -182,11 +189,16 @@ class _checkOutState extends State<checkOut> {
                     Spacer(),
                     Container(
                       child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
+                          onTap: () async {
+                            final result = await Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => paymentMethods()));
+                            if (result != null && result is PaymentModel) {
+                              setState(() {
+                                selectPayment = result;
+                              });
+                            }
                           },
                           child: Text(
                             "Change",
@@ -206,19 +218,22 @@ class _checkOutState extends State<checkOut> {
             Row(
               children: [
                 Card(
-                  surfaceTintColor: Colors.white,
+                  surfaceTintColor: Colors.grey.shade700,
                   shadowColor: Colors.grey,
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.18,
                     height: MediaQuery.of(context).size.height * 0.07,
-                    child: Image.asset("assets/images/mastercard.png"),
+                    child: Image.asset(
+                      selectPayment?.cardtypeImage ?? "assets/images/null.png",
+                    ),
                   ),
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 Text(
-                  formattedCardNumber,
+                  maskCardNumber(selectPayment?.cardCode ?? "Add Card Code") ??
+                      "Add Card Code",
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
@@ -278,16 +293,5 @@ class _checkOutState extends State<checkOut> {
         ),
       ),
     );
-  }
-
-  String maskCardNumber(String cardNumber) {
-    if (cardNumber.length != 12) {
-      return 'Invalid Card Number';
-    }
-
-    String masked = '**** ****';
-    String remainingDigits = cardNumber.substring(8);
-
-    return '$masked $remainingDigits';
   }
 }

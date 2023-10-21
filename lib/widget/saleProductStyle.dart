@@ -8,11 +8,12 @@ class saleProductStyle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.39,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => SizedBox(
-              width: 140, child: NewProductCard(data: saleItems[index])),
+              width: MediaQuery.of(context).size.width * 0.43,
+              child: NewProductCard(data: saleItems[index])),
           separatorBuilder: (context, index) => SizedBox(
                 width: 10,
               ),

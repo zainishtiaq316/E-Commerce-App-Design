@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/Model/CategoryModel.dart';
+import 'package:ecommerceapp/Screens/detailScreen.dart';
 import 'package:flutter/material.dart';
 
 class NewProductCard extends StatelessWidget {
@@ -9,7 +10,12 @@ class NewProductCard extends StatelessWidget {
     int totalStars = 5;
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailScreen(detail: data)));
+      },
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,6 +33,17 @@ class NewProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
+                if (data.showCloseSymbol == true)
+                  Positioned(
+                    right: 10,
+                    top: 10,
+                    child: GestureDetector(
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
                 if (data.showSpecificQuality == true)
                   Positioned(
                       top: 10,
@@ -84,10 +101,12 @@ class NewProductCard extends StatelessWidget {
                             ? Icon(
                                 Icons.shopping_bag,
                                 color: Colors.white,
+                                size: 15,
                               )
                             : Icon(
                                 Icons.favorite_outline,
                                 color: Colors.grey,
+                                size: 15,
                               )))
               ],
             ),
@@ -120,7 +139,7 @@ class NewProductCard extends StatelessWidget {
             ),
             Container(
               child: Text(
-                '${data.fashions}',
+                '${data.fashion}',
                 style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ),
@@ -137,31 +156,75 @@ class NewProductCard extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 0),
-              child: RichText(
-                text: new TextSpan(children: [
-                  if (data.showSpecificDiscount == true)
-                    TextSpan(
-                      text: '${data.discountPrice} ',
+            if (data.showCloseSymbol == true)
+              Row(
+                children: [
+                  Container(
+                    child: Text(
+                      'Color: ',
                       style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.lineThrough,
-                          decorationStyle: TextDecorationStyle.solid,
-                          decorationThickness: 1,
-                          fontSize: 15),
+                        color: Colors.grey,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
-                  TextSpan(
-                    text: '${data.price}\$  ',
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
-                  )
-                ]),
+                  ),
+                  Container(
+                    child: Text(
+                      '${data.color}',
+                      style: TextStyle(color: Colors.black, fontSize: 13),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    child: Text(
+                      'Size: ',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      '${data.size}',
+                      style: TextStyle(color: Colors.black, fontSize: 13),
+                    ),
+                  ),
+                ],
               ),
+            SizedBox(
+              height: 7,
             ),
+            Padding(
+                padding: const EdgeInsets.only(left: 0),
+                child: Row(
+                  children: [
+                    if (data.showSpecificDiscount == true)
+                      Container(
+                        child: Text(
+                          '${data.discountPrice} ',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.lineThrough,
+                              decorationStyle: TextDecorationStyle.solid,
+                              decorationThickness: 1,
+                              fontSize: 13),
+                        ),
+                      ),
+                    Text(
+                      '${data.price}\$  ',
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13),
+                    )
+                  ],
+                )),
           ],
         ),
       ),

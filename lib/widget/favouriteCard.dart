@@ -1,6 +1,6 @@
 import 'package:ecommerceapp/Model/CategoryModel.dart';
 import 'package:ecommerceapp/Model/bagModel.dart';
-import 'package:ecommerceapp/Screens/detailScreen.dart';
+import 'package:ecommerceapp/Screens/detailScreen/detailScreen.dart';
 import 'package:flutter/material.dart';
 
 import '../Constant/colors.dart';

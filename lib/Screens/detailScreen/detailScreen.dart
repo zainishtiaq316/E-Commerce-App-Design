@@ -2,6 +2,9 @@ import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Model/CategoryModel.dart';
 import 'package:ecommerceapp/Screens/BagScreen/promocode.dart';
 import 'package:ecommerceapp/Screens/HomeScreen/fashionsale.dart';
+import 'package:ecommerceapp/Screens/detailScreen/colorSnapShot.dart';
+import 'package:ecommerceapp/Screens/detailScreen/sizeSnapShot.dart';
+import 'package:ecommerceapp/widget/detailStyle.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -13,11 +16,15 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  Widget snapshotWidget() {
-    return SingleChildScrollView(child: fashionSale());
+  Widget snapShotSizeWidget() {
+    return SingleChildScrollView(child: sizeSnapShot());
   }
 
-  void _showSnapshot() {
+  Widget snapShorColorWidget() {
+    return SingleChildScrollView(child: colorSnapShot());
+  }
+
+  void snapShotSize() {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -29,13 +36,31 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
       ),
       builder: (BuildContext context) {
-        return snapshotWidget();
+        return snapShotSizeWidget();
+      },
+    );
+  }
+
+  void snapShotColor() {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusDirectional.only(
+          topEnd: Radius.circular(25),
+          topStart: Radius.circular(25),
+        ),
+      ),
+      builder: (BuildContext context) {
+        return snapShorColorWidget();
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    int totalStar = 5;
     final _formKey = GlobalKey<FormState>();
     final selectSizeController = TextEditingController();
     final addtoCart = Container(
@@ -81,7 +106,7 @@ class _DetailScreenState extends State<DetailScreen> {
         style: TextStyle(color: Colors.black.withOpacity(0.9)),
         textInputAction: TextInputAction.next,
         onTap: () {
-          snapshotWidget();
+          snapShotSize();
         },
         readOnly: true,
         decoration: InputDecoration(
@@ -131,7 +156,7 @@ class _DetailScreenState extends State<DetailScreen> {
         style: TextStyle(color: Colors.black.withOpacity(0.9)),
         textInputAction: TextInputAction.next,
         onTap: () {
-          snapshotWidget();
+          snapShotColor();
         },
         readOnly: true,
         decoration: InputDecoration(
@@ -187,7 +212,7 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
-        color: Colors.white,
+        surfaceTintColor: Colors.white,
         notchMargin: 4.0,
         child: Padding(
             padding:
@@ -197,6 +222,7 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SingleChildScrollView(
         child: Form(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -206,7 +232,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   fit: BoxFit.fill,
                 ),
               ),
-              /*   Padding(
+              Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
                 child: Row(
                   children: [
@@ -229,14 +255,17 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ], color: Colors.white, shape: BoxShape.circle),
                       child: Icon(
-                        Icons.favorite,
+                        Icons.favorite_outline,
                         color: Colors.grey,
+                        size: 18,
                       ),
                     )
                   ],
                 ),
               ),
-             */
+              SizedBox(
+                height: 10,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
                 child: Row(
@@ -246,13 +275,142 @@ class _DetailScreenState extends State<DetailScreen> {
                         "${widget.detail.name}",
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 15,
+                            fontSize: 17,
                             fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      "\$${widget.detail.price}",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Container(
+                  child: Text(
+                    "${widget.detail.fashion}",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Container(
+                  child: Text(
+                    "${widget.detail.fashion}",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    for (int i = 1; i <= totalStar; i++)
+                      Icon(
+                        i <= widget.detail.stars!
+                            ? Icons.star
+                            : Icons.star_border, // Filled or empty star
+                        color: i <= widget.detail.stars!
+                            ? Colors.yellow.shade700
+                            : Colors.grey, // Star color
+                        size: 17,
+                      ),
+                    Container(
+                      child: Text(
+                        " (${widget.detail.ratings})",
+                        style: TextStyle(color: Colors.grey, fontSize: 12),
                       ),
                     )
                   ],
                 ),
               ),
+              Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text("${widget.detail.description}"),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 10, bottom: 10),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Row(
+                    children: [
+                      Text(
+                        "Shipping info",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 15,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 10, bottom: 10),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Row(
+                    children: [
+                      Text(
+                        "Support",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 15,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 10, bottom: 10),
+                child: Text(
+                  "You can also like this",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, top: 10, bottom: 10),
+                  child: DetailStyle())
             ],
           ),
         ),

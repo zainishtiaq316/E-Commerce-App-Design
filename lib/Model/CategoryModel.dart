@@ -3,6 +3,7 @@ class NewItemModel {
   String? name;
   String? price;
   String? fashion;
+  String? description;
   String? color;
   String? quality;
   String? discountPrice;
@@ -23,6 +24,7 @@ class NewItemModel {
       this.quality,
       this.stars,
       this.color,
+      this.description,
       this.size,
       this.fashion,
       this.showCloseSymbol,
@@ -38,6 +40,8 @@ List<NewItemModel> newItems = [
       image: "assets/images/n1.png",
       name: "Girl Dress",
       price: "12",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       ratings: 20,
       fashion: "Dorothy Perkins",
       quality: "New",
@@ -47,6 +51,8 @@ List<NewItemModel> newItems = [
       image: "assets/images/n2.png",
       name: "Boy Dress",
       price: "12",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       ratings: 10,
       fashion: "Sitlly",
       quality: "New",
@@ -61,6 +67,8 @@ List<NewItemModel> saleItems = [
       stars: 3,
       ratings: 30,
       fashion: "Sitlly",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       discountPrice: "15\$",
       discountPercentage: "-20%",
       showSpecificDiscount: true),
@@ -69,6 +77,8 @@ List<NewItemModel> saleItems = [
       name: "Sports Dress",
       price: "19",
       stars: 2,
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       ratings: 40,
       fashion: "Dorothy Perkins",
       discountPrice: "22\$",
@@ -84,6 +94,8 @@ List<NewItemModel> favouriteItemss = [
       ratings: 10,
       color: "Blue",
       size: "L",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       quality: "New",
       showCloseSymbol: true,
       stars: 5,
@@ -96,6 +108,8 @@ List<NewItemModel> favouriteItemss = [
       size: "S",
       price: "46",
       ratings: 0,
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       quality: "New",
       showCloseSymbol: true,
       showBag: true,
@@ -108,6 +122,8 @@ List<NewItemModel> favouriteItemss = [
       fashion: "LIME",
       ratings: 10,
       color: "Blue",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       size: "L",
       quality: "New",
       showCloseSymbol: true,
@@ -120,6 +136,8 @@ List<NewItemModel> favouriteItemss = [
       stars: 0,
       fashion: "&Berries",
       color: "Black",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
       size: "S",
       ratings: 0,
       showCloseSymbol: true,
@@ -127,4 +145,50 @@ List<NewItemModel> favouriteItemss = [
       discountPrice: "-55\$",
       discountPercentage: "-30%",
       showSpecificDiscount: true),
+];
+List<NewItemModel> detailItems = [
+  NewItemModel(
+      image: "assets/images/n1.png",
+      name: "Girl Dress",
+      price: "12",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
+      ratings: 20,
+      fashion: "Dorothy Perkins",
+      quality: "New",
+      stars: 5,
+      showSpecificQuality: true),
+  NewItemModel(
+      image: "assets/images/n2.png",
+      name: "Boy Dress",
+      price: "12",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
+      ratings: 10,
+      fashion: "Sitlly",
+      quality: "New",
+      stars: 4,
+      showSpecificQuality: true),
+  NewItemModel(
+      image: "assets/images/n1.png",
+      name: "Girl Dress",
+      price: "12",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
+      ratings: 20,
+      fashion: "Dorothy Perkins",
+      quality: "New",
+      stars: 5,
+      showSpecificQuality: true),
+  NewItemModel(
+      image: "assets/images/n2.png",
+      name: "Boy Dress",
+      price: "12",
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
+      ratings: 10,
+      fashion: "Sitlly",
+      quality: "New",
+      stars: 4,
+      showSpecificQuality: true),
 ];

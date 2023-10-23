@@ -1,6 +1,8 @@
 import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Model/paymentModel.dart';
 import 'package:ecommerceapp/Model/shippingAddressmodel.dart';
+import 'package:ecommerceapp/Screens/BagScreen/addPayment.dart';
+import 'package:ecommerceapp/Screens/BagScreen/promocode.dart';
 import 'package:ecommerceapp/widget/ShippingStyle.dart';
 import 'package:ecommerceapp/widget/atmCard.dart';
 import 'package:ecommerceapp/widget/paymentStyle.dart';
@@ -20,7 +22,40 @@ class _paymentMethodsState extends State<paymentMethods> {
 
   @override
   Widget build(BuildContext context) {
+    Widget snapshotWidget() {
+      return SingleChildScrollView(child: AddPayment());
+    }
+
+    void _showSnapshot() {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusDirectional.only(
+            topEnd: Radius.circular(25),
+            topStart: Radius.circular(25),
+          ),
+        ),
+        builder: (BuildContext context) {
+          return snapshotWidget();
+        },
+      );
+    }
+
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          splashColor: Colors.black,
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          shape: CircleBorder(),
+          backgroundColor: Colors.black,
+          onPressed: () {
+            _showSnapshot();
+          },
+        ),
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {

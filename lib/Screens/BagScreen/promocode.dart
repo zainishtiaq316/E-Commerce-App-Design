@@ -66,33 +66,42 @@ class PromoCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Icon(
-              Icons.horizontal_rule,
-              size: 48,
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.only(
-                  left: 15, right: 10, top: 20, bottom: 30),
-              child: promoCode),
-          Padding(
-              padding: const EdgeInsets.only(
-                  left: 15, right: 10, top: 10, bottom: 10),
-              child: Container(
-                child: Text(
-                  "Your Promo Codes",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.2,
+                  height: 6,
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(20)),
                 ),
-              )),
-          promoStyle()
-        ],
+              ],
+            ),
+            Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 10, top: 20, bottom: 30),
+                child: promoCode),
+            Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 10, top: 10, bottom: 10),
+                child: Container(
+                  child: Text(
+                    "Your Promo Codes",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
+                )),
+            promoStyle()
+          ],
+        ),
       ),
     );
   }

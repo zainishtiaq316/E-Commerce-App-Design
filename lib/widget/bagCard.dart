@@ -135,12 +135,11 @@ class bagCard extends StatelessWidget {
                                 ],
                               ),
                               child: Center(
-                                child: Text(
-                                  "-",
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 15),
-                                ),
-                              ),
+                                  child: Icon(
+                                Icons.remove,
+                                color: Colors.grey,
+                                size: 15,
+                              )),
                             ),
                           ),
                           SizedBox(
@@ -170,12 +169,11 @@ class bagCard extends StatelessWidget {
                                 ],
                               ),
                               child: Center(
-                                child: Text(
-                                  "+",
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 15),
-                                ),
-                              ),
+                                  child: Icon(
+                                Icons.add,
+                                color: Colors.grey,
+                                size: 15,
+                              )),
                             ),
                           ),
                           Spacer(),

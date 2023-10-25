@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class PromoCode extends StatelessWidget {
   PromoCode({super.key});
 
-  final _formKey = GlobalKey<FormState>();
+  //final _formKey = GlobalKey<FormState>();
 
   final promoController = TextEditingController();
 

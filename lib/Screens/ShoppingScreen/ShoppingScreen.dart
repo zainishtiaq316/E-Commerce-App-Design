@@ -2,7 +2,6 @@ import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Screens/ShoppingScreen/kids.dart';
 import 'package:ecommerceapp/Screens/ShoppingScreen/men.dart';
 import 'package:ecommerceapp/Screens/ShoppingScreen/woman.dart';
-import 'package:ecommerceapp/widget/categoriesStyle.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingScreen extends StatelessWidget {

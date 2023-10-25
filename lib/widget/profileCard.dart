@@ -1,5 +1,9 @@
 import 'package:ecommerceapp/Constant/colors.dart';
+import 'package:ecommerceapp/Model/paymentModel.dart';
 import 'package:ecommerceapp/Model/profileModel.dart';
+import 'package:ecommerceapp/Screens/BagScreen/paymentMethods.dart';
+import 'package:ecommerceapp/Screens/BagScreen/promocode.dart';
+import 'package:ecommerceapp/Screens/BagScreen/shippingAddress.dart';
 import 'package:ecommerceapp/Screens/ProfileScreen/MyOrdered.dart';
 import 'package:ecommerceapp/Screens/ProfileScreen/settingScreen.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +28,17 @@ class profileCard extends StatelessWidget {
           if (profile.title == 'My Orders')
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MyOrderedScreen()));
+
+          if (profile.title == 'Shipping Address')
+            Navigator.push(context,
+                MaterialPageRoute(builder: ((context) => ShippingAddress())));
+
+          if (profile.title == 'Payment methods')
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => paymentMethods()));
+          /* if (profile.title == 'Promocodes')
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => PromoCode()));*/
         },
         child: ClipPath(
           child: Container(

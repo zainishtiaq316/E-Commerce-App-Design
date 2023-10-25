@@ -1,6 +1,6 @@
 import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/widget/colorStyle.dart';
-import 'package:ecommerceapp/widget/sizeStyle.dart';
+
 import 'package:flutter/material.dart';
 
 class colorSnapShot extends StatelessWidget {

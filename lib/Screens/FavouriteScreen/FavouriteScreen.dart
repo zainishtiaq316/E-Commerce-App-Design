@@ -1,4 +1,3 @@
-import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/widget/favAppBarStyle.dart';
 import 'package:ecommerceapp/widget/favouriteStyle.dart';
 import 'package:ecommerceapp/widget/favouritegridStyle.dart';

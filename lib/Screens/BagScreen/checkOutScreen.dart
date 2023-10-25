@@ -49,8 +49,6 @@ class _checkOutState extends State<checkOut> {
       ),
     );
 
-    String formattedCardNumber = maskCardNumber(cardNumber);
-
     selectedShipping = shipping.firstWhere(
       (address) => address.isSelected ?? false,
       orElse: () => ShippingModel(),
@@ -232,8 +230,7 @@ class _checkOutState extends State<checkOut> {
                   width: 10,
                 ),
                 Text(
-                  maskCardNumber(selectPayment?.cardCode ?? "Add Card Code") ??
-                      "Add Card Code",
+                  maskCardNumber(selectPayment?.cardCode ?? "Add Card Code"),
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,

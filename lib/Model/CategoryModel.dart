@@ -170,25 +170,27 @@ List<NewItemModel> detailItems = [
       stars: 4,
       showSpecificQuality: true),
   NewItemModel(
-      image: "assets/images/n1.png",
-      name: "Girl Dress",
+      image: "assets/images/s1.png",
+      name: "Evening Dress",
       price: "12",
-      description:
-          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
-      ratings: 20,
-      fashion: "Dorothy Perkins",
-      quality: "New",
-      stars: 5,
-      showSpecificQuality: true),
-  NewItemModel(
-      image: "assets/images/n2.png",
-      name: "Boy Dress",
-      price: "12",
-      description:
-          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
-      ratings: 10,
+      stars: 3,
+      ratings: 30,
       fashion: "Sitlly",
-      quality: "New",
-      stars: 4,
-      showSpecificQuality: true),
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
+      discountPrice: "15\$",
+      discountPercentage: "-20%",
+      showSpecificDiscount: true),
+  NewItemModel(
+      image: "assets/images/s2.png",
+      name: "Sports Dress",
+      price: "19",
+      stars: 2,
+      description:
+          "Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",
+      ratings: 40,
+      fashion: "Dorothy Perkins",
+      discountPrice: "22\$",
+      discountPercentage: "-15%",
+      showSpecificDiscount: true)
 ];

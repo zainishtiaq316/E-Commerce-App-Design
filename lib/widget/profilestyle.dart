@@ -8,7 +8,7 @@ class profileStyle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * 0.7,
       child: ListView.separated(
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => SizedBox(

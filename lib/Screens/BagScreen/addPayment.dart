@@ -24,7 +24,7 @@ class AddPayment extends StatelessWidget {
     final TextEditingController _nameController = TextEditingController();
     final TextEditingController _cardNumberController = TextEditingController();
     final TextEditingController _CVV = TextEditingController();
-    final _formKey = GlobalKey<FormState>();
+    // final _formKey = GlobalKey<FormState>();
     bool isDefaultPayment = false;
 
     final name = Container(

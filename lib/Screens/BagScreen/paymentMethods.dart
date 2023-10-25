@@ -1,10 +1,8 @@
 import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Model/paymentModel.dart';
-import 'package:ecommerceapp/Model/shippingAddressmodel.dart';
+
 import 'package:ecommerceapp/Screens/BagScreen/addPayment.dart';
-import 'package:ecommerceapp/Screens/BagScreen/promocode.dart';
-import 'package:ecommerceapp/widget/ShippingStyle.dart';
-import 'package:ecommerceapp/widget/atmCard.dart';
+
 import 'package:ecommerceapp/widget/paymentStyle.dart';
 import 'package:flutter/material.dart';
 

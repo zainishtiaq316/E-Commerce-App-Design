@@ -88,7 +88,7 @@ List<myOrdersModel> odersDetailsCanceled = [
       quantity: 3,
       amount: 112,
       deliveryStatus: "Cancelled",
-      processing: true),
+      cancelled: true),
   myOrdersModel(
       orderNo: "1947034",
       date: "05-12-2019",

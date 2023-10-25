@@ -2,8 +2,7 @@ import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Screens/BagScreen/checkOutScreen.dart';
 
 import 'package:ecommerceapp/widget/bagStyle.dart';
-import 'package:ecommerceapp/widget/myPromoStyle.dart';
-import 'package:ecommerceapp/widget/profilestyle.dart';
+
 import 'package:flutter/material.dart';
 
 import 'promocode.dart';

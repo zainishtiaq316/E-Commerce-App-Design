@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Model/color.dart';
+import 'package:ecommerceapp/Model/colorsnapShor.dart';
 import 'package:ecommerceapp/Model/size.dart';
 import 'package:flutter/material.dart';
 

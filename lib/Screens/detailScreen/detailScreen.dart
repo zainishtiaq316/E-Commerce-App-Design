@@ -1,7 +1,5 @@
 import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Model/CategoryModel.dart';
-import 'package:ecommerceapp/Screens/BagScreen/promocode.dart';
-import 'package:ecommerceapp/Screens/HomeScreen/fashionsale.dart';
 import 'package:ecommerceapp/Screens/detailScreen/colorSnapShot.dart';
 import 'package:ecommerceapp/Screens/detailScreen/sizeSnapShot.dart';
 import 'package:ecommerceapp/widget/detailStyle.dart';
@@ -61,7 +59,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     int totalStar = 5;
-    final _formKey = GlobalKey<FormState>();
+    //final _formKey = GlobalKey<FormState>();
     final selectSizeController = TextEditingController();
     final addtoCart = Container(
       width: MediaQuery.of(context).size.width,

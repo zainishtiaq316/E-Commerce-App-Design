@@ -1,7 +1,5 @@
 import 'package:ecommerceapp/Constant/colors.dart';
-import 'package:ecommerceapp/Screens/BagScreen/addPayment.dart';
 import 'package:ecommerceapp/Screens/ProfileScreen/changePassword.dart';
-import 'package:ecommerceapp/widget/profilestyle.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -109,19 +107,49 @@ class _SettingScreenState extends State<SettingScreen> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(160),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {},
+                )
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, top: 10, bottom: 10),
+              child: Container(
+                child: Text(
+                  "Settings",
+                  style: TextStyle(
+                      color: textColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
+                child: Text(
+                  "Personal Information",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                )),
+          ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -131,27 +159,6 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: Container(
-                    child: Text(
-                      "Settings",
-                      style: TextStyle(
-                          color: textColor,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "Personal Information",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    )),
                 name,
                 SizedBox(
                   height: 20,

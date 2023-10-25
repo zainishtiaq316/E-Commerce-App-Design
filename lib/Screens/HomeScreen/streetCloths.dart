@@ -1,5 +1,5 @@
 import 'package:ecommerceapp/Constant/colors.dart';
-import 'package:ecommerceapp/Screens/HomeScreen/fashionsale.dart';
+
 import 'package:ecommerceapp/widget/NewProductStyle.dart';
 import 'package:ecommerceapp/widget/saleProductStyle.dart';
 import 'package:flutter/material.dart';

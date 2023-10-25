@@ -130,6 +130,19 @@ class myOrderedCard extends StatelessWidget {
                       "${orders.deliveryStatus}",
                       style: TextStyle(
                           color: Colors.green, fontWeight: FontWeight.w500),
+                    ),
+                  if (orders.processing == true)
+                    Text(
+                      "${orders.deliveryStatus}",
+                      style: TextStyle(
+                          color: Colors.yellow.shade900,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  if (orders.cancelled == true)
+                    Text(
+                      "${orders.deliveryStatus}",
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.w500),
                     )
                 ],
               ),

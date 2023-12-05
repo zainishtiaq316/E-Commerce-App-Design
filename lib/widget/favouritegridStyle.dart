@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/Model/CategoryModel.dart';
+/*import 'package:ecommerceapp/Model/CategoryModel.dart';
 
 import 'package:ecommerceapp/widget/NewProductCard.dart';
 
@@ -30,3 +30,4 @@ class favouritegridStyle extends StatelessWidget {
     );
   }
 }
+*/

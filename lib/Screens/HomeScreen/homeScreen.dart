@@ -1,11 +1,25 @@
 import 'package:ecommerceapp/Constant/colors.dart';
 import 'package:ecommerceapp/Screens/HomeScreen/fashionsale.dart';
-import 'package:ecommerceapp/widget/NewProductStyle.dart';
+import 'package:ecommerceapp/provider/getCategoryProvider.dart';
+import 'package:ecommerceapp/provider/getProductProvider.dart';
+import 'package:ecommerceapp/provider/NewProductStyle.dart';
 import 'package:ecommerceapp/widget/saleProductStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  void initState() {
+    super.initState();
+
+    Provider.of<CategoryProvider>(context, listen: false).getCategoryData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +172,7 @@ class HomeScreen extends StatelessWidget {
                     right: 15,
                     top: 10,
                   ),
-                  child: saleProductStyle())
+                  child: saleProductStyle()),
             ]),
       ),
     );

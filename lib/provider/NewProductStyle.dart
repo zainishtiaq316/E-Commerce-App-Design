@@ -1,11 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerceapp/Model/CategoryModel.dart';
 import 'package:ecommerceapp/provider/getCategoryProvider.dart';
+import 'package:ecommerceapp/provider/productConsumer.dart';
 import 'package:ecommerceapp/provider/NewProductCard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class saleProductStyle extends StatelessWidget {
-  const saleProductStyle({super.key});
+class NewProductStyle extends StatelessWidget {
+  const NewProductStyle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,17 @@ class saleProductStyle extends StatelessWidget {
               ),
               itemBuilder: (context, index) => SizedBox(
                   width: MediaQuery.of(context).size.width * 0.33,
-                  child:
-                      NewProductCard(data: categoryProvider.categories[index])),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => productConsumer(
+                                    catId: categoryProvider.categories[index].id
+                                        .toString())));
+                      },
+                      child: NewProductCard(
+                          data: categoryProvider.categories[index]))),
             ),
           );
         } else {

@@ -19,8 +19,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   void toggleStyle() {
     setState(() {
       isStyle1 = !isStyle1;
-      currentScreen = isStyle1 ? favouritegridStyle() : favouriteStyle();
-      currentIcon = isStyle1 ? Icon(Icons.grid_on) : Icon(Icons.list);
+      // currentScreen = isStyle1 ? favouritegridStyle() : favouriteStyle();
+      //currentIcon = isStyle1 ? Icon(Icons.grid_on) : Icon(Icons.list);
     });
   }
 

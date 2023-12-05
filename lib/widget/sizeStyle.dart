@@ -1,7 +1,7 @@
 import 'package:ecommerceapp/Model/CategoryModel.dart';
 import 'package:ecommerceapp/Model/size.dart';
 
-import 'package:ecommerceapp/widget/NewProductCard.dart';
+import 'package:ecommerceapp/provider/NewProductCard.dart';
 import 'package:ecommerceapp/widget/sizeCard.dart';
 
 import 'package:flutter/material.dart';

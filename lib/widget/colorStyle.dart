@@ -2,7 +2,7 @@ import 'package:ecommerceapp/Model/CategoryModel.dart';
 import 'package:ecommerceapp/Model/colorsnapShor.dart';
 import 'package:ecommerceapp/Model/size.dart';
 
-import 'package:ecommerceapp/widget/NewProductCard.dart';
+import 'package:ecommerceapp/provider/NewProductCard.dart';
 import 'package:ecommerceapp/widget/colorCard.dart';
 import 'package:ecommerceapp/widget/sizeCard.dart';
 
